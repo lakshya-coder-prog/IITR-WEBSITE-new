@@ -1,0 +1,124 @@
+document.addEventListener('DOMContentLoaded', function () {
+  const track = document.getElementById('achievements-track');
+  if (!track) return;
+
+  const cards = Array.from(track.querySelectorAll('.achievement-card'));
+  const cardCount = cards.length;
+  let autoSlideInterval;
+
+  
+  cards.forEach(card => {
+    const clone = card.cloneNode(true);
+    track.appendChild(clone);
+  });
+
+  let currentOffset = 0;
+
+  function getCardWidth() {
+    const card = track.querySelector('.achievement-card');
+    if (!card) return 300;
+    const style = getComputedStyle(track);
+    const gap = parseInt(style.gap) || 16;
+    return card.offsetWidth + gap;
+  }
+
+  function slideLeft() {
+    const cardWidth = getCardWidth();
+    currentOffset += cardWidth;
+
+    track.style.transition = 'transform 0.6s ease-in-out';
+    track.style.transform = `translateX(-${currentOffset}px)`;
+
+    if (currentOffset >= cardWidth * cardCount) {
+      setTimeout(() => {
+        track.style.transition = 'none';
+        currentOffset = 0;
+        track.style.transform = `translateX(0px)`;
+      }, 620);
+    }
+  }
+
+  function slideRight() {
+    const cardWidth = getCardWidth();
+
+    if (currentOffset <= 0) {
+      track.style.transition = 'none';
+      currentOffset = cardWidth * cardCount;
+      track.style.transform = `translateX(-${currentOffset}px)`;
+
+      setTimeout(() => {
+        currentOffset -= cardWidth;
+        track.style.transition = 'transform 0.6s ease-in-out';
+        track.style.transform = `translateX(-${currentOffset}px)`;
+      }, 20);
+      return;
+    }
+
+    currentOffset -= cardWidth;
+    track.style.transition = 'transform 0.6s ease-in-out';
+    track.style.transform = `translateX(-${currentOffset}px)`;
+  }
+
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(slideLeft, 3000);
+  }
+
+  function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+  }
+
+  
+  const prevBtn = document.getElementById('achievements-prev');
+  const nextBtn = document.getElementById('achievements-next');
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      stopAutoSlide();
+      slideRight();
+      startAutoSlide();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      stopAutoSlide();
+      slideLeft();
+      startAutoSlide();
+    });
+  }
+
+ 
+  const section = track.closest('section');
+  if (section) {
+    section.addEventListener('mouseenter', stopAutoSlide);
+    section.addEventListener('mouseleave', startAutoSlide);
+  }
+
+  
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  track.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    stopAutoSlide();
+  }, { passive: true });
+
+  track.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) slideLeft();
+      else slideRight();
+    }
+    startAutoSlide();
+  }, { passive: true });
+
+ 
+  window.addEventListener('resize', () => {
+    track.style.transition = 'none';
+    currentOffset = 0;
+    track.style.transform = 'translateX(0px)';
+  });
+
+  startAutoSlide();
+});
