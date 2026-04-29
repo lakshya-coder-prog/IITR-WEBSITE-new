@@ -280,7 +280,7 @@
   grid-template-columns: repeat(4, 1fr); 
   
   grid-auto-rows: 160px; 
-  gap: 15px;
+  gap: 7px;
 }
 
 .grid-item img {
@@ -968,6 +968,8 @@ font-size: 1.1rem; margin: 0 0 5px 0;
   align-items: center;
 }
 
+
+
 .footer-logo-img {
   height: 65px;
  
@@ -1049,24 +1051,34 @@ font-size: 1.1rem; margin: 0 0 5px 0;
   margin-bottom: 15px;
 }
 
-/* SOCIAL MEDIA */
-.social-icons {
-  display: flex;
-  gap: 15px;
-  margin-top: 20px;
-  display: flex;
-  flex-direction: row;    
-}
+.social-midbar {
+        display: flex;
+        justify-content: center; 
+        flex-direction: row;
+        gap: 20px; 
+        position: relative;
+        right: 0;
+        margin-top: 15px;
+        margin-bottom: 30px;
+        width: 100%;
+        left: -47.5px;
+    }
 
-.social-icons a {
-  color: #ffffff;
-  font-size: 1.1rem;
-  text-decoration: none;
-  display: flex;
-  flex-direction: row;    
-}
+    .social-midbar a {
+        width: auto;
+        height: auto;
+    }
 
-
+    .social-midbar img {
+        width: 22px;
+        height: 22px;
+        position: static;
+        right: auto;
+        display: flex;
+        justify-content: center; 
+        flex-direction: row;
+        gap: 20px; 
+    }
 
 .footer-attribution {
   display: flex;
@@ -1217,6 +1229,34 @@ font-size: 1.1rem; margin: 0 0 5px 0;
         z-index: 100;
     }
 
+    .research-grid {
+    display: grid;
+  
+    grid-template-columns: repeat(4, 1fr); 
+  
+    grid-auto-rows: 80px; 
+    gap: 15px;
+}
+
+.grid-item img {
+  width: 80%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+}
+
+
+.grid-item.tall {
+  grid-row: span 1; 
+  object-fit: cover;
+}
+
+.grid-item.wide {
+  grid-column: span 1; 
+
+}
+
+
     
     .container1 .nav-links:first-of-type a:not(:first-child) {
         display: none;
@@ -1283,12 +1323,10 @@ font-size: 1.1rem; margin: 0 0 5px 0;
    
     .container2 {
         height: auto;
-        flex-direction: column;
         padding-top: 15px;
         padding-bottom: 15px;
-        padding-left: 50px;
-        padding-right: 50px; 
-        text-align: center;
+        padding-left: 20px;
+        padding-right: 150px; 
         position: relative;
     }
 
@@ -1306,9 +1344,6 @@ font-size: 1.1rem; margin: 0 0 5px 0;
 
     .logo-group {
         margin-bottom: 0;
-        flex-direction: column;
-        align-items: center;
-        gap: 5px;
     }
 
     .main-logo {
@@ -1468,35 +1503,60 @@ font-size: 1.1rem; margin: 0 0 5px 0;
    
     .research-container {
         width: 90%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .research-header {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .research-header h2 {
+        font-size: 16px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .research-header .view-all {
+        font-size: 13px;
+        font-weight: bold;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .research-grid {
+        display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 120px;
+        grid-auto-rows: 150px; 
+        gap: 10px;
+        grid-auto-flow: dense; 
+    }
+
+    .grid-item {
+        width: 100%;
+        height: 100%;
+    }
+
+    .grid-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
     }
 
     .grid-item.tall {
-        grid-row: span 1;
-    }
-
-    .grid-item.tall {
+        grid-row: span 2; 
         grid-column: span 1;
     }
 
     .grid-item.wide {
         grid-row: span 1;
+        grid-column: span 1; 
     }
-
-    .grid-item.wide {
-        grid-column: span 1;
-    }
-
     
     .patents-section {
         width: 90%;
@@ -1536,11 +1596,11 @@ font-size: 1.1rem; margin: 0 0 5px 0;
     }
 
     .left-arrow {
-        left: -5px;
+         left: -5px;
     }
 
     .right-arrow {
-        right: -5px;
+         right: -5px;
     }
 
     
@@ -1571,9 +1631,9 @@ font-size: 1.1rem; margin: 0 0 5px 0;
     }
 
     .achievements-container {
-        width: 100%;
-        padding-left: 0;
-        padding-right: 0;
+        width: 80%;
+        margin-left:10%;
+        margin-right: 10%;
     }
 
     .achievements-header {
@@ -1744,17 +1804,19 @@ font-size: 1.1rem; margin: 0 0 5px 0;
     .footer-grid {
         flex-direction: column;
         gap: 30px;
+        margin-left: 3px;
     }
 
     .footer-column {
         width: 100%;
-        text-align: center; 
+        text-align: left; 
         padding-top: 0;
         padding-bottom: 0;
         padding-left: 0;
         padding-right: 0;
     }
 
+    
     .footer-column h3 {
         margin-bottom: 15px;
         font-size: 15px;
@@ -1910,7 +1972,7 @@ font-size: 1.1rem; margin: 0 0 5px 0;
     
     .contact-links a {
         display: flex;
-        justify-content: center; 
+        justify-content: left; 
         align-items: center;
         gap: 15px; 
         width: 100%; 
@@ -1921,13 +1983,14 @@ font-size: 1.1rem; margin: 0 0 5px 0;
     
     .social-midbar {
         display: flex;
-        justify-content: center; 
+        justify-content: left; 
         flex-direction: row;
         gap: 20px; 
         position: relative;
         right: 0;
         margin-top: 15px;
         margin-bottom: 30px;
+        margin-left: 48px;
         width: 100%;
     }
 
@@ -1942,6 +2005,7 @@ font-size: 1.1rem; margin: 0 0 5px 0;
         position: static;
         right: auto;
         display: flex;
+
         justify-content: center; 
         flex-direction: row;
         gap: 20px; 
@@ -2458,7 +2522,7 @@ font-size: 1.1rem; margin: 0 0 5px 0;
   <div class="footer-main-content">
     <div class="footer-grid">
       
-      <div class="footer-column contact-col">
+      <div class="footer-column">
         <div class="contact-links">
           <a href="#">How to reach IIT Roorkee <span class="icon"></span></a>
           <a href="tel:+911332285311">+91-1332-285311 <span class="icon">📞</span></a>
@@ -2475,7 +2539,7 @@ font-size: 1.1rem; margin: 0 0 5px 0;
       </div>
 
       <div class="footer-column">
-        <h3>EXPLORE</h3>
+        <h3>EXPLOR</h3>
         <ul>
           <li><a href="#">Administration ↗</a></li>
           <li><a href="#">Tenders and Quotations</a></li>
@@ -2540,24 +2604,21 @@ font-size: 1.1rem; margin: 0 0 5px 0;
 </div>
 <script>
 
-  /* =======================================================
-     MOBILE DROPDOWN TOGGLE (Saharanpur Campus)
-     ======================================================= */
   const campusToggleBtn = document.querySelector('.container1 .nav-links:first-of-type a:first-child');
   const campusNavGroup = document.querySelector('.container1 .nav-links:first-of-type');
 
   if (campusToggleBtn && campusNavGroup) {
     campusToggleBtn.addEventListener('click', function(e) {
-      // If we are on mobile (screen width <= 768px)
+
       if (window.innerWidth <= 768) {
-        e.preventDefault(); // Prevents the page from jumping to top
-        campusNavGroup.classList.toggle('active'); // Opens/Closes the menu
+        e.preventDefault(); 
+        campusNavGroup.classList.toggle('active'); 
       }
     });
   }
   document.addEventListener('DOMContentLoaded', function () {
   
-  // Add a quick CSS rule dynamically to ensure fading transitions look smooth
+
   const style = document.createElement('style');
   style.innerHTML = `
     .patent-text-side h3, .patent-text-side .description, 
@@ -2567,29 +2628,23 @@ font-size: 1.1rem; margin: 0 0 5px 0;
   `;
   document.head.appendChild(style);
 
-  /* =======================================================
-     1. ACHIEVEMENTS (Horizontal Scrolling)
-     ======================================================= */
   const achieveTrack = document.querySelector('.cards-flex');
   const achievePrev = document.querySelector('.slider-box .left-arrow');
   const achieveNext = document.querySelector('.slider-box .right-arrow');
 
   if (achieveTrack && achievePrev && achieveNext) {
-    
-    // 1. Force smooth scrolling behavior via JavaScript
+
     achieveTrack.style.scrollBehavior = 'smooth';
-    
-    // Calculate exactly how far to scroll (1 card + 25px gap)
+
     function getScrollAmount() {
       const card = achieveTrack.querySelector('.achievement-card');
       return card ? card.offsetWidth + 25 : 375; 
     }
 
-    // RIGHT ARROW CLICK
+
     achieveNext.addEventListener('click', () => {
       const maxScroll = achieveTrack.scrollWidth - achieveTrack.clientWidth;
       
-      // If we hit the end, smoothly scroll all the way back to the beginning
       if (achieveTrack.scrollLeft >= maxScroll - 10) {
         achieveTrack.scrollTo({ left: 0, behavior: 'smooth' });
       } else {
@@ -2597,9 +2652,8 @@ font-size: 1.1rem; margin: 0 0 5px 0;
       }
     });
 
-    // LEFT ARROW CLICK
     achievePrev.addEventListener('click', () => {
-      // If we are at the very beginning, smoothly scroll to the very end
+
       if (achieveTrack.scrollLeft <= 0) {
         achieveTrack.scrollTo({ left: achieveTrack.scrollWidth, behavior: 'smooth' });
       } else {
@@ -2609,27 +2663,22 @@ font-size: 1.1rem; margin: 0 0 5px 0;
   }
   
 
-  /* =======================================================
-     2. EVENTS GALLERY (Image Swap with Fade)
-     ======================================================= */
   const galleryImg = document.querySelector('.image-wrapper img');
   const galleryPrev = document.querySelector('.image-wrapper .left-arrow');
   const galleryNext = document.querySelector('.image-wrapper .right-arrow');
   const dots = document.querySelectorAll('.image-dots .img-dot');
 
-  // Replace these with the actual image files you want to cycle through
   const galleryImages = ['rms.jpg', '1.jpg.jpeg', '2.jpg.jpeg', '5.jpg.jpeg', 'student.png'];
   let galleryIdx = 0;
 
   function updateGallery(index) {
     if(!galleryImg) return;
-    galleryImg.style.opacity = 0; // Fade out
+    galleryImg.style.opacity = 0; 
     setTimeout(() => {
       galleryImg.src = galleryImages[index];
-      galleryImg.style.opacity = 1; // Fade in
+      galleryImg.style.opacity = 1; 
     }, 300);
 
-    // Update the white dots
     dots.forEach(dot => dot.classList.remove('active'));
     if (dots[index]) dots[index].classList.add('active');
   }
@@ -2643,9 +2692,6 @@ font-size: 1.1rem; margin: 0 0 5px 0;
     updateGallery(galleryIdx);
   });
 
-  /* =======================================================
-     3. PATENTS (Text Swap with Fade)
-     ======================================================= */
   const patentTitle = document.querySelector('.patent-text-side h3');
   const patentDesc = document.querySelector('.patent-text-side .description');
   const patentPrev = document.querySelector('.patents-flex-container .left-arrow');
@@ -2688,16 +2734,13 @@ font-size: 1.1rem; margin: 0 0 5px 0;
     updatePatent(patentIdx);
   });
 
-  /* =======================================================
-     4. MILESTONES (Text Swap & Clickable Timeline Dots) lakshya-coder-prog
-     ======================================================= */
   const msTitle = document.querySelector('.milestone-text h3');
   const msDesc = document.querySelector('.milestone-text p');
   const msPrev = document.querySelector('.milestone-content-wrapper .left-arrow');
   const msNext = document.querySelector('.milestone-content-wrapper .right-arrow');
   const timelineItems = document.querySelectorAll('.timeline-item');
   
-  // Data for the 7 timeline years
+
   const msData = [
     { title: "Milestone 2018", desc: "Description for 2018 achievements." },
     { title: "Milestone 2019", desc: "Description for 2019 achievements." },
@@ -2707,7 +2750,7 @@ font-size: 1.1rem; margin: 0 0 5px 0;
     { title: "IITR's Architecture Department ranked <strong>1<sup>st</sup></strong> among all colleges in India", desc: "Department of Architecture, IIT Roorkee remains unparalleled and has maintained its position as rank #1 in the National Institutional Ranking Framework (NIRF)..." },
     { title: "Milestone 2024", desc: "Description for 2024 achievements." }
   ];
-  let msIdx = 5; // Start at index 5 (2023)
+  let msIdx = 5; 
 
   function updateMilestone(idx) {
     if(!msTitle || !msDesc) return;
@@ -2721,12 +2764,10 @@ font-size: 1.1rem; margin: 0 0 5px 0;
       msDesc.style.opacity = 1;
     }, 300);
 
-    // Update the active yellow timeline dot
     timelineItems.forEach(item => item.classList.remove('active'));
     if(timelineItems[idx]) timelineItems[idx].classList.add('active');
   }
 
-  // Make arrows work
   if (msPrev) msPrev.addEventListener('click', () => {
     msIdx = (msIdx === 0) ? msData.length - 1 : msIdx - 1;
     updateMilestone(msIdx);
@@ -2736,7 +2777,6 @@ font-size: 1.1rem; margin: 0 0 5px 0;
     updateMilestone(msIdx);
   });
 
-  // Make the timeline dots clickable
   timelineItems.forEach((item, index) => {
     item.addEventListener('click', () => {
       msIdx = index;
@@ -2748,4 +2788,3 @@ font-size: 1.1rem; margin: 0 0 5px 0;
 </script>
 </body>
 </html>
-
